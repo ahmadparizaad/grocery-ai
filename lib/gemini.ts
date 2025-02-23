@@ -1,9 +1,7 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
+// import { GEMINI_API_KEY } from '@env';
 
-if (!process.env.GEMINI_API_KEY) {
-  throw new Error('GEMINI_API_KEY is not defined');
-}
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+const genAI = new GoogleGenerativeAI('');
 const model = genAI.getGenerativeModel({ model: 'gemini-1.5-pro' });
 
 export async function processVoiceInput(text: string): Promise<{ name: string; quantity: string }[]> {
